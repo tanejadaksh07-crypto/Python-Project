@@ -1,0 +1,8 @@
+# Local environment and generated files
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+main.db
+pyvenv.cfg
