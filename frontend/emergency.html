@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Supply Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="emergency.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1 class="app-title">Emergency Supply Portal</h1>
+      <p class="app-subtitle">Prepare your emergency kit and share your status</p>
+    </header>
+
+    <main>
+      <!-- Alert Messages -->
+      <div id="alertBox" class="alert hidden"></div>
+
+      <!-- Location Section -->
+      <section class="card location-card">
+        <div class="location-header">
+          <div class="location-icon">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <div class="location-info">
+            <h2>Your Location</h2>
+            <p>We use your location to provide better assistance in emergencies</p>
+          </div>
+        </div>
+
+        <div class="location-status">
+          <div class="status-indicator"></div>
+          <span id="locationText">Getting your location...</span>
+        </div>
+
+        <div class="map-container" id="mapPlaceholder">
+          <i class="fas fa-map-marked-alt fa-3x"></i>
+        </div>
+
+        <div class="location-actions">
+          <button class="btn btn-primary" id="refreshLocation">
+            <i class="fas fa-sync-alt"></i> Refresh Location
+          </button>
+          <button class="btn btn-outline" id="manualLocation">
+            <i class="fas fa-pencil-alt"></i> Enter Manually
+          </button>
+        </div>
+      </section>
+
+      <!-- Supply List -->
+      <section class="supply-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-kit-medical"></i> Essential Supplies
+          </h2>
+          <div class="progress-text" id="supplyProgress">0/10 items</div>
+        </div>
+
+        <div class="supply-grid" id="supplyList">
+          <!-- Supply items will be generated here -->
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="supplyProgressBar" style="width: 0%"></div>
+        </div>
+      </section>
+
+      <!-- Formspree Form -->
+      <section class="card form-card">
+        <h2 class="form-title">
+          <i class="fas fa-paper-plane"></i> Submit Your Preparedness Checklist
+        </h2>
+
+        <form id="supplyForm" action="https://formspree.io/f/xdkwozeg" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="name">
+                <i class="fas fa-user"></i> Your Name
+              </label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                <i class="fas fa-envelope"></i> Your Email
+              </label>
+              <input type="email" id="email" name="_replyto" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="people">
+                <i class="fas fa-users"></i> Household Size
+              </label>
+              <input type="number" id="people" name="people" min="1" value="1" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="notes">
+                <i class="fas fa-sticky-note"></i> Additional Notes
+              </label>
+              <textarea id="notes" name="notes" class="form-input" rows="4"></textarea>
+            </div>
+          </div>
+
+          <input type="hidden" id="hiddenLocation" name="location" value="">
+          <input type="hidden" id="supplyData" name="supply_data" value="">
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <i class="fas fa-check-circle"></i> Submit Checklist
+          </button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="emergency.js"></script>
+</body>
+<script src="/frontend/chatbot.js"></script>
+
+</html>

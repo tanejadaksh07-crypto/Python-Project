@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    /* Chat button (circle logo) */
+    #chat-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #4CAF50;
+      color: white;
+      font-size: 28px;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    }
+    /* Chat window */
+    #chat-box {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      left: 20px;
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      flex-direction: column;
+    }
+    #messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    #input-box {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    #input-box input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+    }
+    #input-box button {
+      border: none;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="chat-btn">💬</div>
+
+<div id="chat-box">
+  <div id="messages"></div>
+  <div id="input-box">
+    <input type="text" id="user-input" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+</body>
+</html>
